@@ -1,0 +1,38 @@
+<link href="../styles/style.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css"/>
+<html lang="pt-BR">
+<head>
+  <title>Resumo Diário</title>
+  <meta charset="utf-8"/>
+</head>
+<body>
+  <div>
+    <nav class="navbar navbar-dark bg-primary" style="color: #fff">
+      <legend>
+        <img src="../images/usinainfo.png" align="left">
+        <p align="center" style="margin-right: 210px"><b>Resumo Diário</b></p>
+      </legend>
+    </nav><br>
+  </div>
+  <strong style="margin-left: 10px">Obs: A data deve ser anterior ao dia atual!</strong>
+  <div id="app" class="mb-3" style='margin: 15px; margin-left: 20px; width: 200px' align="center">
+  <select class="form-control moeda" aria-label="Default select example" style="margin-bottom: 10px">
+    {foreach from=$moedas item=moeda}
+    <option value="{$moeda->sigla_moedas}">{$moeda->nome_moedas}</option>
+    {/foreach}
+  </select>
+  <input type="date" placeholder="Data" class="form-control dmy"/>
+  <div align="left">
+    <button class="btn btn-primary" style="margin-top: 10px;" id="btn" value="btn" name="btn">Confirmar</button>
+  </div>
+  </div>
+  <div align="right" style="margin-right: 20px">
+    <a style="align: " href="../views/inicio.html" class="btn btn-primary">Voltar</a>
+  </div>
+  <div style="margin-left: 10px">
+    <main class="retornaValor"></main>
+  </div>
+  <script src="../scripts/resumodiario.js"></script>
+</body>
+</html>
