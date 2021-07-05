@@ -31,7 +31,7 @@
         <td><p align="center">{$moeda->id_moedas}</p></td>
         <td><p align="center">{$moeda->sigla_moedas}</p></td>
         <td><p align="center">{$moeda->nome_moedas}</p></td>
-        <td><button value="Deletar" class="btn btn-primary"><b>X</b></button></td>
+        <td><button name="btndelete" id="btndelete" value="{$moeda->id_moedas}" class="btn btn-primary btndelete"><b>X</b></button></td>
         </tr>
         {/foreach}
     </tbody>
