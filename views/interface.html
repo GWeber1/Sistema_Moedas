@@ -1,0 +1,59 @@
+<link href="../styles/style.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<html>
+<head>
+  <title>Cadastro</title>
+  <meta charset="UTF-8"/>
+<script>
+  $(document).ready(function() {
+    function loading_show() {
+      $('#load').fadeIn('fast');
+    }
+    function loading_hide() {
+      $('#load').fadeOut('fast');
+    }
+    $('#btn').click(function() {
+      var valores = $('#formid').serialize();
+
+      $.ajax({
+          type: 'POST',
+          dataType: 'php',
+          url: '../classes/inserir.php',
+          beforeSend: function() {
+            loading_show();
+          },
+          data: valores,
+          success: function(retorno) {
+            $('#result_moedas').html(retorno).fadeIn();
+        },
+        error: function(error) {
+          loading_hide();
+          $('#result_moedas').html(error).fadeIn();
+        }
+      });
+    });
+  });
+</script>
+</head>
+<body>
+  <div>
+    <nav class="navbar navbar-dark bg-primary" style="color: #FFF">
+      <legend>
+        <img src="../images/usinainfo.png" style="margin-left: 10px"><strong style="margin-left: 350px">Cadastro de Moedas</strong>
+      </legend>
+    </nav>
+  </div>
+  <form name="formid" id="formid" action="inserir.php" method="POST">
+    <div align="center" style="margin-top: 30px">
+      <input type="text" id="sigla_moedas" name="sigla_moedas" placeholder="Sigla da Moeda" class="form-control" style="width: 200px; margin: 10px"/>
+      <input type="text" id="nome_moedas" name="nome_moedas" placeholder="Nome" class="form-control" style="width: 200px; margin: 10px"/>
+      <input type="reset" id="btn" name="btn" class="btn btn-primary" value="Confirmar" style="background-color: #6E3479; border-color: #6E3479"/>
+      <a href="../views/inicio.html" class="btn btn-primary" value="Voltar" style="background-color: #6E3479; border-color: 6E3479;">Voltar</a>
+    </div>
+  </form>
+  <div id="show">
+    <div id="load"></div>
+    <div id="result_moedas"></div>
+  </div>
+</body>
+</html>
