@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="../styles/style.css"/>
+<html lang="pt-BR">
+<head>
+  <title>Relatório</title>
+  <meta charset="utf-8"/>
+</head>
+<body>
+  <div>
+    <nav class="navbar navbar-dark bg-primary" style="color: #FFF">
+      <legend>
+        <img src="../images/usinainfo.png" style="margin-left: 10px"><strong style="margin-left: 380px">Relatórios</strong>
+      </legend>
+    </nav>
+  </div>
+  <div class="row">
+    <div class="col" align="center" style="margin-top: 5px">
+      <span><strong>Moedas</strong></span>
+    </div>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col"><p align="center">ID</p></th>
+        <th scope="col"><p align="center">Sigla</p></th>
+        <th scope="col"><p align="center">Nome</p></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        {foreach from=$moedas item=moeda}
+        <td><p align="center">{$moeda->id_moedas}</p></td>
+        <td><p align="center">{$moeda->sigla_moedas}</p></td>
+        <td><p align="center">{$moeda->nome_moedas}</p></td>
+        <td><button value="Deletar" class="btn btn-primary"><b>X</b></button></td>
+        </tr>
+        {/foreach}
+    </tbody>
+    </table>
+    <div style="margin-left: 1000px">
+      <a href="../views/inicio.html" class="btn btn-primary">Voltar</a>
+    </div>
+</body>
+</html>
